@@ -13,7 +13,7 @@ The website includes an AI-powered chatbot that uses OpenRouter to provide intel
    - Click "Add a variable"
    - Add the following:
      - Key: `OPENROUTER_API_KEY`
-     - Value: `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`
+     - Value: `[Your OpenRouter API key - provided separately]`
      - Scopes: Select all deploy contexts
 
 3. **Redeploy the Site**
