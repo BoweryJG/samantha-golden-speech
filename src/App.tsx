@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { theme } from './theme/theme';
 import Layout from './components/Layout/Layout';
-import Home from './pages/Home';
+import HomeIconic from './pages/HomeIconic';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
@@ -23,7 +23,7 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<HomeIconic />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/resources" element={<Resources />} />
