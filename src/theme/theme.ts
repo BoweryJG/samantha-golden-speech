@@ -3,24 +3,34 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#2E7D9A', // Professional blue
-      light: '#5BA4C7',
-      dark: '#1F546B',
+      main: '#6B46C1', // Deep purple - trust and expertise
+      light: '#9F7AEA',
+      dark: '#553C9A',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#8BC34A', // Calming green
-      light: '#BCEE68',
-      dark: '#689F33',
-      contrastText: '#000000',
+      main: '#EC4899', // Warm pink - compassion and care
+      light: '#F687B3',
+      dark: '#BE185D',
+      contrastText: '#ffffff',
     },
     background: {
       default: '#FAFAFA',
       paper: '#FFFFFF',
     },
     text: {
-      primary: '#333333',
-      secondary: '#666666',
+      primary: '#1A202C',
+      secondary: '#4A5568',
+    },
+    info: {
+      main: '#3182CE', // Trustworthy blue for accents
+      light: '#63B3ED',
+      dark: '#2C5282',
+    },
+    success: {
+      main: '#48BB78', // Growth green
+      light: '#9AE6B4',
+      dark: '#276749',
     },
   },
   typography: {
@@ -93,9 +103,15 @@ export const theme = createTheme({
           },
         },
         containedPrimary: {
-          background: 'linear-gradient(45deg, #2E7D9A 30%, #5BA4C7 90%)',
+          background: 'linear-gradient(45deg, #6B46C1 30%, #9F7AEA 90%)',
           '&:hover': {
-            background: 'linear-gradient(45deg, #1F546B 30%, #2E7D9A 90%)',
+            background: 'linear-gradient(45deg, #553C9A 30%, #6B46C1 90%)',
+          },
+        },
+        containedSecondary: {
+          background: 'linear-gradient(45deg, #EC4899 30%, #F687B3 90%)',
+          '&:hover': {
+            background: 'linear-gradient(45deg, #BE185D 30%, #EC4899 90%)',
           },
         },
       },

@@ -16,6 +16,7 @@
     "@mui/icons-material": "^7.1.1",
     "@mui/lab": "^7.0.0-beta.13",
     "@mui/material": "^7.1.1",
+    "@netlify/functions": "^4.1.4",
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.1.2",
     "@types/three": "^0.177.0",

@@ -50,7 +50,7 @@ const AnimatedBackground: React.FC = () => {
           
           if (distance < 150) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(46, 125, 154, ${0.2 * (1 - distance / 150)})`;
+            ctx.strokeStyle = `rgba(107, 70, 193, ${0.2 * (1 - distance / 150)})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(this.x, this.y);
             ctx.lineTo(particle.x, particle.y);
@@ -61,7 +61,7 @@ const AnimatedBackground: React.FC = () => {
         // Draw particle
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(139, 195, 74, 0.6)';
+        ctx.fillStyle = 'rgba(236, 72, 153, 0.6)';
         ctx.fill();
       }
     }

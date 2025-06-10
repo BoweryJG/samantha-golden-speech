@@ -43,7 +43,7 @@ const services: Service[] = [
     ],
     price: '$150/session',
     popular: true,
-    color: '#8BC34A',
+    color: '#EC4899',
   },
   {
     icon: <Psychology sx={{ fontSize: 50 }} />,
@@ -56,7 +56,7 @@ const services: Service[] = [
       'Telehealth available',
     ],
     price: '$175/session',
-    color: '#2E7D9A',
+    color: '#6B46C1',
   },
   {
     icon: <Restaurant sx={{ fontSize: 50 }} />,
@@ -69,7 +69,7 @@ const services: Service[] = [
       'Safety strategies',
     ],
     price: '$200/session',
-    color: '#5BA4C7',
+    color: '#9F7AEA',
   },
   {
     icon: <RecordVoiceOver sx={{ fontSize: 50 }} />,
@@ -82,7 +82,7 @@ const services: Service[] = [
       'Accent modification',
     ],
     price: '$160/session',
-    color: '#AED581',
+    color: '#F687B3',
   },
 ];
 
@@ -109,7 +109,7 @@ const ServicesShowcase: React.FC = () => {
           width: 400,
           height: 400,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(139, 195, 74, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%)',
           filter: 'blur(40px)',
         }}
       />
@@ -138,7 +138,7 @@ const ServicesShowcase: React.FC = () => {
                 fontWeight: 800,
                 mb: 2,
                 fontSize: { xs: '2.5rem', md: '3.5rem' },
-                background: 'linear-gradient(45deg, #2E7D9A 30%, #8BC34A 90%)',
+                background: 'linear-gradient(45deg, #6B46C1 30%, #EC4899 90%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',

@@ -108,7 +108,7 @@ const TestimonialVideos: React.FC = () => {
           width: 300,
           height: 300,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(139, 195, 74, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%)',
           filter: 'blur(60px)',
           animation: 'float 6s ease-in-out infinite',
         }}
@@ -210,7 +210,7 @@ const TestimonialVideos: React.FC = () => {
                       sx={{
                         position: 'relative',
                         height: 250,
-                        background: 'linear-gradient(135deg, #2E7D9A 0%, #5BA4C7 100%)',
+                        background: 'linear-gradient(135deg, #6B46C1 0%, #9F7AEA 100%)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -309,9 +309,9 @@ const TestimonialVideos: React.FC = () => {
                             label={tag}
                             size="small"
                             sx={{
-                              backgroundColor: 'rgba(139, 195, 74, 0.2)',
+                              backgroundColor: 'rgba(236, 72, 153, 0.2)',
                               color: 'secondary.light',
-                              border: '1px solid rgba(139, 195, 74, 0.3)',
+                              border: '1px solid rgba(236, 72, 153, 0.3)',
                             }}
                           />
                         ))}
@@ -373,7 +373,7 @@ const TestimonialVideos: React.FC = () => {
           background: rgba(255, 255, 255, 0.5);
         }
         .testimonial-swiper .swiper-pagination-bullet-active {
-          background: #8BC34A;
+          background: #EC4899;
         }
         @keyframes float {
           0% { transform: translateY(0px); }

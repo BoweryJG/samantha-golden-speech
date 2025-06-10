@@ -5,7 +5,7 @@ import AnimatedStats from '../components/AnimatedStats';
 import ServicesShowcase from '../components/ServicesShowcase';
 import TestimonialVideos from '../components/TestimonialVideos';
 import AnimatedBackground from '../components/AnimatedBackground';
-import AIChatbot from '../components/AIChatbot';
+import SpeechTherapyChatbot from '../components/SpeechTherapyChatbot';
 import { motion } from 'framer-motion';
 
 const HomeIconic: React.FC = () => {
@@ -45,7 +45,7 @@ const HomeIconic: React.FC = () => {
       <Box
         sx={{
           py: 8,
-          background: 'linear-gradient(135deg, #8BC34A 0%, #AED581 100%)',
+          background: 'linear-gradient(135deg, #EC4899 0%, #F687B3 100%)',
           position: 'relative',
         }}
       >
@@ -153,8 +153,8 @@ const HomeIconic: React.FC = () => {
         ))}
       </Box>
 
-      {/* AI Chatbot */}
-      <AIChatbot />
+      {/* Speech Therapy Chatbot */}
+      <SpeechTherapyChatbot />
 
       {/* Parallax decoration elements */}
       <Box
@@ -165,7 +165,7 @@ const HomeIconic: React.FC = () => {
           width: 300,
           height: 300,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(46, 125, 154, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(107, 70, 193, 0.1) 0%, transparent 70%)',
           filter: 'blur(60px)',
           transform: `translateY(${-scrollY * 0.2}px)`,
           pointerEvents: 'none',

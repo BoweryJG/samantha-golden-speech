@@ -32,7 +32,7 @@ const AnimatedStats: React.FC = () => {
       ref={ref}
       sx={{
         py: 8,
-        background: 'linear-gradient(135deg, rgba(46, 125, 154, 0.1) 0%, rgba(139, 195, 74, 0.1) 100%)',
+        background: 'linear-gradient(135deg, rgba(107, 70, 193, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -45,7 +45,7 @@ const AnimatedStats: React.FC = () => {
           width: 300,
           height: 300,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(46, 125, 154, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(107, 70, 193, 0.1) 0%, transparent 70%)',
           animation: 'pulse 4s ease-in-out infinite',
         }}
       />
