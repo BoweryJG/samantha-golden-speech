@@ -6,6 +6,9 @@ import ServicesShowcase from '../components/ServicesShowcase';
 import TestimonialVideos from '../components/TestimonialVideos';
 import AnimatedBackground from '../components/AnimatedBackground';
 import SpeechTherapyChatbot from '../components/SpeechTherapyChatbot';
+import TreatmentApproaches from '../components/TreatmentApproaches';
+import InsuranceGuide from '../components/InsuranceGuide';
+import PediatricMilestones from '../components/PediatricMilestones';
 import { motion } from 'framer-motion';
 
 const HomeIconic: React.FC = () => {
@@ -38,8 +41,17 @@ const HomeIconic: React.FC = () => {
       {/* Revolutionary Services Showcase */}
       <ServicesShowcase />
 
+      {/* Evidence-Based Treatment Approaches */}
+      <TreatmentApproaches />
+
+      {/* Pediatric Milestones Guide */}
+      <PediatricMilestones />
+
       {/* Video Testimonials Carousel */}
       <TestimonialVideos />
+
+      {/* Insurance and Billing Guide */}
+      <InsuranceGuide />
 
       {/* Interactive Features Banner */}
       <Box
@@ -110,7 +122,7 @@ const HomeIconic: React.FC = () => {
           display: { xs: 'none', md: 'block' },
         }}
       >
-        {['01', '02', '03', '04'].map((num, index) => (
+        {['01', '02', '03', '04', '05', '06', '07'].map((num, index) => (
           <motion.div
             key={num}
             initial={{ opacity: 0, x: -50 }}
