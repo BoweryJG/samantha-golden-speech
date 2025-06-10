@@ -34,12 +34,13 @@ const HeroSection3D: React.FC = () => {
         sx={{
           position: 'relative',
           zIndex: 2,
-          height: '100vh',
+          minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
+          px: { xs: 2, sm: 3 },
         }}
       >
-        <Box sx={{ color: 'white', py: 8 }}>
+        <Box sx={{ color: 'white', py: { xs: 4, md: 8 }, width: '100%' }}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,9 +50,11 @@ const HeroSection3D: React.FC = () => {
               variant="overline"
               sx={{
                 color: 'secondary.light',
-                letterSpacing: 3,
-                fontSize: '1rem',
+                letterSpacing: { xs: 1, sm: 3 },
+                fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem' },
                 fontWeight: 600,
+                display: 'block',
+                textAlign: { xs: 'center', md: 'left' },
               }}
             >
               Transformative Speech & Language Specialist
@@ -67,9 +70,10 @@ const HeroSection3D: React.FC = () => {
               variant="h1"
               sx={{
                 fontWeight: 900,
-                fontSize: { xs: '3rem', md: '5rem', lg: '6rem' },
+                fontSize: { xs: '2.5rem', sm: '3.5rem', md: '5rem', lg: '6rem' },
                 lineHeight: 1.1,
-                mb: 3,
+                mb: { xs: 2, md: 3 },
+                textAlign: { xs: 'center', md: 'left' },
                 background: 'linear-gradient(45deg, #ffffff 30%, #F687B3 90%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
@@ -88,11 +92,13 @@ const HeroSection3D: React.FC = () => {
             <Typography
               variant="h4"
               sx={{
-                mb: 4,
+                mb: { xs: 3, md: 4 },
                 opacity: 0.9,
-                maxWidth: 600,
-                fontSize: { xs: '1.2rem', md: '1.5rem' },
+                maxWidth: { xs: '100%', md: 600 },
+                fontSize: { xs: '1rem', sm: '1.2rem', md: '1.5rem' },
                 lineHeight: 1.6,
+                textAlign: { xs: 'center', md: 'left' },
+                px: { xs: 1, md: 0 },
               }}
             >
               Transforming lives through innovative speech therapy. 
@@ -105,7 +111,15 @@ const HeroSection3D: React.FC = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
+          >
+            <Box sx={{
+              display: 'flex',
+              gap: { xs: 2, md: 1 },
+              flexDirection: { xs: 'column', sm: 'row' },
+              alignItems: { xs: 'center', sm: 'flex-start' },
+              justifyContent: { xs: 'center', md: 'flex-start' },
+              flexWrap: 'wrap',
+            }}
           >
             <Button
               variant="contained"
@@ -114,10 +128,11 @@ const HeroSection3D: React.FC = () => {
               sx={{
                 background: 'linear-gradient(45deg, #EC4899 30%, #F687B3 90%)',
                 color: 'white',
-                px: 4,
-                py: 2,
-                fontSize: '1.1rem',
+                px: { xs: 3, md: 4 },
+                py: { xs: 1.5, md: 2 },
+                fontSize: { xs: '1rem', md: '1.1rem' },
                 fontWeight: 600,
+                minWidth: { xs: '200px', sm: 'auto' },
                 boxShadow: '0 4px 20px rgba(236, 72, 153, 0.4)',
                 '&:hover': {
                   transform: 'translateY(-2px)',
@@ -133,10 +148,11 @@ const HeroSection3D: React.FC = () => {
               sx={{
                 borderColor: 'white',
                 color: 'white',
-                px: 4,
-                py: 2,
-                fontSize: '1.1rem',
+                px: { xs: 3, md: 4 },
+                py: { xs: 1.5, md: 2 },
+                fontSize: { xs: '1rem', md: '1.1rem' },
                 borderWidth: 2,
+                minWidth: { xs: '200px', sm: 'auto' },
                 '&:hover': {
                   borderColor: 'secondary.light',
                   backgroundColor: 'rgba(255,255,255,0.1)',
@@ -146,6 +162,7 @@ const HeroSection3D: React.FC = () => {
             >
               Watch Success Stories
             </Button>
+            </Box>
           </motion.div>
 
           {/* Floating badges */}
@@ -155,7 +172,12 @@ const HeroSection3D: React.FC = () => {
             transition={{ duration: 1, delay: 1 }}
             style={{ marginTop: '3rem' }}
           >
-            <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+            <Box sx={{ 
+              display: 'flex', 
+              gap: { xs: 1, sm: 2, md: 3 }, 
+              flexWrap: 'wrap',
+              justifyContent: { xs: 'center', md: 'flex-start' },
+            }}>
               {['ASHA Certified', 'NJ Licensed', 'PROMPT Trained', 'VitalStim Certified'].map(
                 (badge, index) => (
                   <motion.div
@@ -171,15 +193,21 @@ const HeroSection3D: React.FC = () => {
                   >
                     <Box
                       sx={{
-                        px: 3,
-                        py: 1.5,
+                        px: { xs: 2, sm: 3 },
+                        py: { xs: 1, sm: 1.5 },
                         background: 'rgba(255,255,255,0.1)',
                         backdropFilter: 'blur(10px)',
                         borderRadius: 50,
                         border: '1px solid rgba(255,255,255,0.2)',
                       }}
                     >
-                      <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                      <Typography 
+                        variant="body2" 
+                        sx={{ 
+                          fontWeight: 600,
+                          fontSize: { xs: '0.7rem', sm: '0.875rem' },
+                        }}
+                      >
                         {badge}
                       </Typography>
                     </Box>

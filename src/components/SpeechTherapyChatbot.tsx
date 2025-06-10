@@ -374,12 +374,13 @@ const SpeechTherapyChatbot: React.FC = () => {
             <Paper
               elevation={10}
               sx={{
-                width: { xs: '90vw', sm: 450 },
-                height: { xs: '80vh', sm: 650 },
+                width: { xs: '95vw', sm: 450 },
+                height: { xs: '85vh', sm: 650 },
+                maxWidth: '400px',
                 display: 'flex',
                 flexDirection: 'column',
                 overflow: 'hidden',
-                borderRadius: 4,
+                borderRadius: { xs: 2, sm: 4 },
               }}
             >
               {/* Header */}
@@ -387,19 +388,21 @@ const SpeechTherapyChatbot: React.FC = () => {
                 sx={{
                   background: 'linear-gradient(135deg, #6B46C1 0%, #9F7AEA 100%)',
                   color: 'white',
-                  p: 2,
+                  p: { xs: 1.5, sm: 2 },
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                 }}
               >
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <Avatar sx={{ bgcolor: 'secondary.main' }}>
-                    <Psychology />
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1, sm: 2 } }}>
+                  <Avatar sx={{ bgcolor: 'secondary.main', width: { xs: 32, sm: 40 }, height: { xs: 32, sm: 40 } }}>
+                    <Psychology sx={{ fontSize: { xs: 18, sm: 24 } }} />
                   </Avatar>
                   <Box>
-                    <Typography variant="h6">Speech Therapy Assistant</Typography>
-                    <Typography variant="caption" sx={{ opacity: 0.9 }}>
+                    <Typography variant="h6" sx={{ fontSize: { xs: '1rem', sm: '1.25rem' } }}>
+                      Speech Therapy Assistant
+                    </Typography>
+                    <Typography variant="caption" sx={{ opacity: 0.9, fontSize: { xs: '0.7rem', sm: '0.8rem' } }}>
                       Get answers to your questions
                     </Typography>
                   </Box>
@@ -413,20 +416,42 @@ const SpeechTherapyChatbot: React.FC = () => {
               </Box>
 
               {/* Quick Questions */}
-              <Box sx={{ p: 2, backgroundColor: 'grey.50', borderBottom: 1, borderColor: 'divider' }}>
-                <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block' }}>
+              <Box sx={{ p: { xs: 1.5, sm: 2 }, backgroundColor: 'grey.50', borderBottom: 1, borderColor: 'divider' }}>
+                <Typography 
+                  variant="caption" 
+                  sx={{ 
+                    color: 'text.secondary', 
+                    mb: 1, 
+                    display: 'block',
+                    fontSize: { xs: '0.7rem', sm: '0.8rem' }
+                  }}
+                >
                   Common Questions:
                 </Typography>
-                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-                  {quickQuestions.map((q, index) => (
+                <Box sx={{ 
+                  display: 'flex', 
+                  gap: { xs: 0.5, sm: 1 }, 
+                  flexWrap: 'wrap',
+                  maxHeight: { xs: '120px', sm: 'auto' },
+                  overflowY: { xs: 'auto', sm: 'visible' }
+                }}>
+                  {quickQuestions.slice(0, window.innerWidth < 600 ? 3 : quickQuestions.length).map((q, index) => (
                     <Chip
                       key={index}
-                      icon={q.icon}
+                      icon={React.cloneElement(q.icon as React.ReactElement, {
+                        sx: { fontSize: { xs: 16, sm: 20 } }
+                      })}
                       label={q.text}
                       onClick={() => handleQuickQuestion(q)}
                       sx={{
                         cursor: 'pointer',
                         backgroundColor: 'white',
+                        fontSize: { xs: '0.7rem', sm: '0.8rem' },
+                        height: { xs: 'auto', sm: 32 },
+                        '& .MuiChip-label': {
+                          px: { xs: 1, sm: 1.5 },
+                          py: { xs: 0.5, sm: 0 },
+                        },
                         '&:hover': {
                           backgroundColor: 'primary.light',
                           color: 'white',
@@ -443,7 +468,7 @@ const SpeechTherapyChatbot: React.FC = () => {
                 sx={{
                   flex: 1,
                   overflow: 'auto',
-                  p: 2,
+                  p: { xs: 1.5, sm: 2 },
                   backgroundColor: 'background.default',
                 }}
               >

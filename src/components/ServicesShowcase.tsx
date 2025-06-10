@@ -137,7 +137,8 @@ const ServicesShowcase: React.FC = () => {
               sx={{
                 fontWeight: 800,
                 mb: 2,
-                fontSize: { xs: '2.5rem', md: '3.5rem' },
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
+                textAlign: 'center',
                 background: 'linear-gradient(45deg, #6B46C1 30%, #EC4899 90%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
@@ -150,9 +151,12 @@ const ServicesShowcase: React.FC = () => {
               variant="h5"
               sx={{
                 color: 'text.secondary',
-                maxWidth: 600,
+                maxWidth: { xs: '100%', md: 600 },
                 mx: 'auto',
                 lineHeight: 1.6,
+                fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' },
+                px: { xs: 2, md: 0 },
+                textAlign: 'center',
               }}
             >
               Cutting-edge techniques combined with compassionate care
@@ -161,9 +165,9 @@ const ServicesShowcase: React.FC = () => {
           </motion.div>
         </Box>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={{ xs: 3, md: 4 }} sx={{ px: { xs: 2, md: 0 } }}>
           {services.map((service, index) => (
-            <Grid item xs={12} md={6} lg={3} key={index}>
+            <Grid item xs={12} sm={6} lg={3} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -213,23 +217,23 @@ const ServicesShowcase: React.FC = () => {
                     />
                   )}
 
-                  <CardContent sx={{ p: 4 }}>
+                  <CardContent sx={{ p: { xs: 3, md: 4 } }}>
                     <Box
                       sx={{
-                        width: 80,
-                        height: 80,
+                        width: { xs: 60, md: 80 },
+                        height: { xs: 60, md: 80 },
                         borderRadius: '20px',
                         background: `linear-gradient(135deg, ${service.color}20 0%, ${service.color}10 100%)`,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        mb: 3,
+                        mb: { xs: 2, md: 3 },
                         transform: hoveredIndex === index ? 'rotate(10deg)' : 'rotate(0deg)',
                         transition: 'transform 0.3s ease',
                       }}
                     >
                       {React.cloneElement(service.icon as React.ReactElement, {
-                        sx: { fontSize: 40, color: service.color },
+                        sx: { fontSize: { xs: 30, md: 40 }, color: service.color },
                       })}
                     </Box>
 
@@ -237,8 +241,10 @@ const ServicesShowcase: React.FC = () => {
                       variant="h5"
                       sx={{
                         fontWeight: 700,
-                        mb: 2,
+                        mb: { xs: 1.5, md: 2 },
                         color: 'text.primary',
+                        fontSize: { xs: '1.3rem', md: '1.5rem' },
+                        textAlign: { xs: 'center', md: 'left' },
                       }}
                     >
                       {service.title}
@@ -248,8 +254,10 @@ const ServicesShowcase: React.FC = () => {
                       variant="body1"
                       sx={{
                         color: 'text.secondary',
-                        mb: 3,
+                        mb: { xs: 2, md: 3 },
                         lineHeight: 1.6,
+                        fontSize: { xs: '0.9rem', md: '1rem' },
+                        textAlign: { xs: 'center', md: 'left' },
                       }}
                     >
                       {service.description}

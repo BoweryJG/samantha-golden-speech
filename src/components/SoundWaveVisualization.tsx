@@ -7,10 +7,10 @@ import { Box } from '@mui/material';
 function WaveForm({ color = '#EC4899' }: { color?: string }) {
   const ref = useRef<THREE.Group>(null);
   
-  // Create dynamic wave points
+  // Create dynamic wave points - reduce segments for mobile
   const points = useMemo(() => {
     const pts: THREE.Vector3[] = [];
-    const segments = 100;
+    const segments = window.innerWidth < 768 ? 50 : 100;
     
     for (let i = 0; i <= segments; i++) {
       const x = (i / segments) * 10 - 5;
@@ -25,20 +25,30 @@ function WaveForm({ color = '#EC4899' }: { color?: string }) {
   useFrame((state) => {
     if (ref.current) {
       const time = state.clock.elapsedTime;
+      const isMobile = window.innerWidth < 768;
+      const segments = isMobile ? 50 : 100;
+      
+      // Reduce update frequency on mobile
+      if (isMobile && Math.floor(time * 30) % 2 !== 0) return;
       
       // Update wave points dynamically
       ref.current.children.forEach((child, index) => {
         if (child instanceof THREE.Line) {
           const positions = (child.geometry as THREE.BufferGeometry).attributes.position;
           
-          for (let i = 0; i <= 100; i++) {
-            const x = (i / 100) * 10 - 5;
+          for (let i = 0; i <= segments; i++) {
+            const x = (i / segments) * 10 - 5;
             const frequency = 0.5 + Math.sin(time * 0.5 + i * 0.1) * 0.3;
             const amplitude = Math.sin(x * frequency + time * 2) * 0.5;
-            const additionalWave = Math.sin(x * 2 + time * 3) * 0.2;
-            const microWave = Math.sin(x * 8 + time * 5) * 0.1;
             
-            positions.setY(i, amplitude + additionalWave + microWave + index * 0.3);
+            // Reduce complexity on mobile
+            if (!isMobile) {
+              const additionalWave = Math.sin(x * 2 + time * 3) * 0.2;
+              const microWave = Math.sin(x * 8 + time * 5) * 0.1;
+              positions.setY(i, amplitude + additionalWave + microWave + index * 0.3);
+            } else {
+              positions.setY(i, amplitude + index * 0.3);
+            }
           }
           
           positions.needsUpdate = true;
@@ -51,8 +61,8 @@ function WaveForm({ color = '#EC4899' }: { color?: string }) {
 
   return (
     <group ref={ref}>
-      {/* Multiple wave layers for depth */}
-      {[0, 1, 2].map((index) => (
+      {/* Multiple wave layers for depth - reduce on mobile */}
+      {(window.innerWidth < 768 ? [0, 1] : [0, 1, 2]).map((index) => (
         <Line
           key={index}
           points={points}
@@ -67,24 +77,26 @@ function WaveForm({ color = '#EC4899' }: { color?: string }) {
 }
 
 function FloatingWords() {
-  const words = ['Communication', 'Growth', 'Voice', 'Connection', 'Progress'];
+  const words = window.innerWidth < 768 
+    ? ['Voice', 'Growth', 'Progress'] // Fewer words on mobile
+    : ['Communication', 'Growth', 'Voice', 'Connection', 'Progress'];
   
   return (
     <>
       {words.map((word, index) => (
         <Float
           key={word}
-          speed={2}
-          rotationIntensity={0.5}
-          floatIntensity={1}
+          speed={window.innerWidth < 768 ? 1 : 2}
+          rotationIntensity={window.innerWidth < 768 ? 0.2 : 0.5}
+          floatIntensity={window.innerWidth < 768 ? 0.5 : 1}
           position={[
-            (index - 2) * 2.5,
+            (index - Math.floor(words.length / 2)) * 2.5,
             Math.sin(index) * 0.5,
             -2 - (index % 2) * 0.5
           ]}
         >
           <Text
-            fontSize={0.3}
+            fontSize={window.innerWidth < 768 ? 0.2 : 0.3}
             color="#9F7AEA"
             anchorX="center"
             anchorY="middle"
@@ -139,7 +151,8 @@ function Points() {
   
   const particles = useMemo(() => {
     const temp = [];
-    for (let i = 0; i < 200; i++) {
+    const particleCount = window.innerWidth < 768 ? 100 : 200; // Fewer particles on mobile
+    for (let i = 0; i < particleCount; i++) {
       const x = (Math.random() - 0.5) * 10;
       const y = (Math.random() - 0.5) * 6;
       const z = (Math.random() - 0.5) * 6;
